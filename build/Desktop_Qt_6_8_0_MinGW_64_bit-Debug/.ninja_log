@@ -1,0 +1,25 @@
+# ninja log v6
+1168	3877	7554189945408799	CMakeFiles/211-Honors-Project.dir/main.cpp.obj	32d6320dcfcd29fb
+12	649	7554371776551315	211-Honors-Project_autogen/timestamp	6880383ce0d55df4
+244	1834	7554355485992380	CMakeFiles/211-Honors-Project.dir/211-Honors-Project_autogen/EWIEGA46WW/qrc_imgs.cpp.obj	f6efc41b8cf2b5be
+654	2848	7554371777219277	CMakeFiles/211-Honors-Project.dir/storyscene.cpp.obj	8170c8953f25d336
+3381	4009	7554371804495611	211-Honors-Project.exe	5e72882fe8bda370
+157	241	7554355485878477	211-Honors-Project_autogen/EWIEGA46WW/qrc_imgs.cpp	4cf1541daa6d7278
+162	1727	7554205842229102	CMakeFiles/211-Honors-Project.dir/player.cpp.obj	ea04e505b8333ba1
+12	649	7554371776551315	211-Honors-Project_autogen/mocs_compilation.cpp	6880383ce0d55df4
+12	649	7554371776551315	C:/Users/Dave/Documents/211-Honors-Project/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/211-Honors-Project_autogen/timestamp	6880383ce0d55df4
+12	649	7554371776551315	C:/Users/Dave/Documents/211-Honors-Project/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/211-Honors-Project_autogen/mocs_compilation.cpp	6880383ce0d55df4
+157	241	7554355485878477	C:/Users/Dave/Documents/211-Honors-Project/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/211-Honors-Project_autogen/EWIEGA46WW/qrc_imgs.cpp	4cf1541daa6d7278
+1172	4214	7554189945448986	CMakeFiles/211-Honors-Project.dir/quiz.cpp.obj	48671c54b05abbed
+645	2847	7554204942499597	CMakeFiles/211-Honors-Project.dir/mainwindow.cpp.obj	53d44bfb942c21c6
+652	2814	7554371777194133	CMakeFiles/211-Honors-Project.dir/chapters.cpp.obj	48157cc68fa79b27
+651	3040	7554204942550332	CMakeFiles/211-Honors-Project.dir/gamewindow.cpp.obj	597ce029d17b2a27
+650	3381	7554371777174035	CMakeFiles/211-Honors-Project.dir/211-Honors-Project_autogen/mocs_compilation.cpp.obj	2d0a32e255a8bc35
+866	2656	7554249720276938	CMakeFiles/211-Honors-Project.dir/dialoguebox.cpp.obj	9a74e12bb275c4e6
+12	121	7554186948029854	MyQtApp_autogen/timestamp	c1b53cd8e54fd469
+12	121	7554186948029854	MyQtApp_autogen/mocs_compilation.cpp	c1b53cd8e54fd469
+12	121	7554186948029854	C:/Users/Dave/Documents/211-Honors-Project/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/MyQtApp_autogen/timestamp	c1b53cd8e54fd469
+12	121	7554186948029854	C:/Users/Dave/Documents/211-Honors-Project/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/MyQtApp_autogen/mocs_compilation.cpp	c1b53cd8e54fd469
+122	160	7554186948369501	CMakeFiles/MyQtApp.dir/MyQtApp_autogen/mocs_compilation.cpp.obj	53f900bf08803ed8
+7	561	7554360750248516	build.ninja	bd9ff5848f28fcc9
+241	2029	7554280423369473	CMakeFiles/211-Honors-Project.dir/storymanager.cpp.obj	378d05411981d3b4

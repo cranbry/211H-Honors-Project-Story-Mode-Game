@@ -1,0 +1,63 @@
+{
+    "chapter1": {
+        "intro_sequence": [
+            {
+                "text": "The field trip started like any other day...",
+                "speaker": "",
+                "next": "1"
+            },
+            {
+                "id": "1",
+                "text": "Excited chatter filled the bus as we approached the forest.",
+                "speaker": "",
+                "next": "2"
+            },
+            {
+                "id": "2",
+                "text": "Stepping off the bus, the dense canopy towered above, casting strange shadows.",
+                "speaker": "",
+                "next": "3"
+            },
+            {
+                "id": "3",
+                "text": "Curiosity drove me deeper into the woods, and soon...",
+                "speaker": "",
+                "next": "4"
+            },
+            {
+                "id": "4",
+                "text": "I realized I had wandered too far from the group.",
+                "speaker": "",
+                "next": "5"
+            },
+            {
+                "id": "5",
+                "text": "Just as I began to panic, something caught my eye in the distance...",
+                "speaker": "",
+                "next": "6"
+            },
+            {
+                "id": "6",
+                "text": "A faint glow, barely visible through the trees, beckoned me to look closer.",
+                "speaker": "",
+                "next": "maya_intro"
+            }
+        ],
+        "maya_intro": {
+            "text": "As you approach the glow, you find an elderly woman gathering herbs.",
+            "speaker": "",
+            "choices": [
+                {
+                    "text": "Help gather herbs",
+                    "next": "help_maya",
+                    "trust_change": 1
+                },
+                {
+                    "text": "Question her methods",
+                    "next": "question_maya",
+                    "trust_change": -1
+                }
+            ]
+        }
+    }
+}
