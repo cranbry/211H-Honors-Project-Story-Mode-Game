@@ -336,6 +336,12 @@
 			null
 		],
 		[
+			"C:/Users/Dave/Documents/211-Honors-Project/herbspot.h",
+			"MU",
+			"EWIEGA46WW/moc_herbspot.cpp",
+			null
+		],
+		[
 			"C:/Users/Dave/Documents/211-Honors-Project/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
@@ -458,6 +464,7 @@
 			"MU",
 			null
 		],
+		[ "C:/Users/Dave/Documents/211-Honors-Project/herbspot.cpp", "MU", null ],
 		[ "C:/Users/Dave/Documents/211-Honors-Project/main.cpp", "MU", null ],
 		[
 			"C:/Users/Dave/Documents/211-Honors-Project/mainwindow.cpp",

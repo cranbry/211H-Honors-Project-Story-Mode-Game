@@ -31,6 +31,7 @@ C:/Users/Dave/Documents/211-Honors-Project/build/Desktop_Qt_6_8_0_MinGW_64_bit-D
   C:/Qt/6.8.0/mingw_64/include/QtCore/qcontainerinfo.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/qcontainertools_impl.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/qcontiguouscache.h \
+  C:/Qt/6.8.0/mingw_64/include/QtCore/qcoreevent.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/qdarwinhelpers.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/qdatastream.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/qdebug.h \
@@ -137,7 +138,9 @@ C:/Users/Dave/Documents/211-Honors-Project/build/Desktop_Qt_6_8_0_MinGW_64_bit-D
   C:/Qt/6.8.0/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.8.0/mingw_64/include/QtGui/qwindowdefs_win.h \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
+  C:/Qt/6.8.0/mingw_64/include/QtWidgets/QGraphicsSceneMouseEvent \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
+  C:/Qt/6.8.0/mingw_64/include/QtWidgets/qgraphicssceneevent.h \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \

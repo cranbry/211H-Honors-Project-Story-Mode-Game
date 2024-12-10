@@ -5,6 +5,7 @@
 #include "player.h"
 #include "storymanager.h"
 #include "MayaNPC.h"
+#include "herbspot.h"
 #include <QWidget>
 #include <QGraphicsScene>
 #include <QGraphicsView>
@@ -19,11 +20,20 @@ public:
     void startOpeningScene();
 
 private slots:
+    void handleChoice(int index);
     void onDialogueChanged();
     void onChoicesAvailable(const QVector<QPair<QString, QString>> &choices);
     void updateMayaPosition(const QVariant& value);
+    void startMayaInteraction();
+    void showChoices();
+    void updateTrustMeter(int newLevel);
 
 private:
+    QVector<HerbSpot*> herbSpots;
+    int herbsCollected = 0;
+    void setupHerbCollection();
+    void onHerbCollected();
+    void enablePlayerMovement(bool enable);
     MayaNPC* mayaNPC;
     QPropertyAnimation* mayaWalkAnimation;
     DialogueBox *dialogueBox;
@@ -35,8 +45,11 @@ private:
     QAudioOutput *audioOutput;
     StoryManager *storyManager;
     QVector<QString> messages;
-    int currentMessage = 0;
 
+    enum class MayaTrust { Positive, Negative };
+    MayaTrust mayaTrustLevel;
+
+    int currentMessage = 0;
     void showMaya();
     void setupScene();
     void startAutoWalk();

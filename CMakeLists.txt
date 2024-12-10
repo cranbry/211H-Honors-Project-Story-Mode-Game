@@ -41,6 +41,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         storymanager.h
         storymanager.cpp
         mayanpc.h
+        herbspot.h
+        herbspot.cpp
+
     )
 else()
     if(ANDROID)

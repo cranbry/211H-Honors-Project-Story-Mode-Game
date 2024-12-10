@@ -1,6 +1,5 @@
 #ifndef STORYMANAGER_H
 #define STORYMANAGER_H
-
 #include <QObject>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -19,18 +18,22 @@ public:
     QVector<QPair<QString, QString>> getCurrentChoices() const;
     void advance();
     void makeChoice(int choiceIndex);
+    void loadSequence(const QString &sequenceId);
+    QString getCurrentNextSequence() const;
+    QString getCurrentSequence() const;
+    int getCurrentIndex() const;
 
 signals:
     void dialogueChanged();
     void choicesAvailable(const QVector<QPair<QString, QString>> &choices);
+    void trustLevelChanged(int newLevel);
 
 private:
     QJsonObject storyData;
     QJsonObject currentChapter;
     QJsonArray currentSequence;
+    QString currentSequenceId;
     int currentIndex;
-
-    void loadSequence(const QString &sequenceId);
+    int trustLevel = 0;
 };
-
 #endif // STORYMANAGER_H

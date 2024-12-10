@@ -8,6 +8,7 @@
 	C:/Qt/6.8.0/mingw_64/include/QtCore/QRect \
 	C:/Qt/6.8.0/mingw_64/include/QtCore/QSize \
 	C:/Qt/6.8.0/mingw_64/include/QtCore/QSizeF \
+	C:/Qt/6.8.0/mingw_64/include/QtCore/QTimer \
 	C:/Qt/6.8.0/mingw_64/include/QtCore/QVector \
 	C:/Qt/6.8.0/mingw_64/include/QtCore/q20functional.h \
 	C:/Qt/6.8.0/mingw_64/include/QtCore/q20iterator.h \
@@ -24,6 +25,7 @@
 	C:/Qt/6.8.0/mingw_64/include/QtCore/qatomic.h \
 	C:/Qt/6.8.0/mingw_64/include/QtCore/qatomic_cxx11.h \
 	C:/Qt/6.8.0/mingw_64/include/QtCore/qbasicatomic.h \
+	C:/Qt/6.8.0/mingw_64/include/QtCore/qbasictimer.h \
 	C:/Qt/6.8.0/mingw_64/include/QtCore/qbindingstorage.h \
 	C:/Qt/6.8.0/mingw_64/include/QtCore/qbytearray.h \
 	C:/Qt/6.8.0/mingw_64/include/QtCore/qbytearrayalgorithms.h \
@@ -134,6 +136,7 @@
 	C:/Qt/6.8.0/mingw_64/include/QtCore/qtdeprecationmarkers.h \
 	C:/Qt/6.8.0/mingw_64/include/QtCore/qtenvironmentvariables.h \
 	C:/Qt/6.8.0/mingw_64/include/QtCore/qtextstream.h \
+	C:/Qt/6.8.0/mingw_64/include/QtCore/qtimer.h \
 	C:/Qt/6.8.0/mingw_64/include/QtCore/qtmetamacros.h \
 	C:/Qt/6.8.0/mingw_64/include/QtCore/qtnoop.h \
 	C:/Qt/6.8.0/mingw_64/include/QtCore/qtpreprocessorsupport.h \
@@ -207,9 +210,13 @@
 	C:/Qt/6.8.0/mingw_64/include/QtMultimedia/qtmultimedia-config.h \
 	C:/Qt/6.8.0/mingw_64/include/QtMultimedia/qtmultimediaexports.h \
 	C:/Qt/6.8.0/mingw_64/include/QtMultimedia/qtmultimediaglobal.h \
+	C:/Qt/6.8.0/mingw_64/include/QtWidgets/QGraphicsEllipseItem \
 	C:/Qt/6.8.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 	C:/Qt/6.8.0/mingw_64/include/QtWidgets/QGraphicsScene \
+	C:/Qt/6.8.0/mingw_64/include/QtWidgets/QGraphicsSceneHoverEvent \
+	C:/Qt/6.8.0/mingw_64/include/QtWidgets/QGraphicsSceneMouseEvent \
 	C:/Qt/6.8.0/mingw_64/include/QtWidgets/QGraphicsView \
+	C:/Qt/6.8.0/mingw_64/include/QtWidgets/QHBoxLayout \
 	C:/Qt/6.8.0/mingw_64/include/QtWidgets/QLabel \
 	C:/Qt/6.8.0/mingw_64/include/QtWidgets/QMainWindow \
 	C:/Qt/6.8.0/mingw_64/include/QtWidgets/QPushButton \
@@ -221,6 +228,7 @@
 	C:/Qt/6.8.0/mingw_64/include/QtWidgets/qframe.h \
 	C:/Qt/6.8.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
 	C:/Qt/6.8.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
+	C:/Qt/6.8.0/mingw_64/include/QtWidgets/qgraphicssceneevent.h \
 	C:/Qt/6.8.0/mingw_64/include/QtWidgets/qgraphicsview.h \
 	C:/Qt/6.8.0/mingw_64/include/QtWidgets/qgridlayout.h \
 	C:/Qt/6.8.0/mingw_64/include/QtWidgets/qlabel.h \
@@ -666,6 +674,8 @@
 	C:/Users/Dave/Documents/211-Honors-Project/dialoguebox.h \
 	C:/Users/Dave/Documents/211-Honors-Project/gamewindow.cpp \
 	C:/Users/Dave/Documents/211-Honors-Project/gamewindow.h \
+	C:/Users/Dave/Documents/211-Honors-Project/herbspot.cpp \
+	C:/Users/Dave/Documents/211-Honors-Project/herbspot.h \
 	C:/Users/Dave/Documents/211-Honors-Project/imgs.qrc \
 	C:/Users/Dave/Documents/211-Honors-Project/main.cpp \
 	C:/Users/Dave/Documents/211-Honors-Project/mainwindow.cpp \

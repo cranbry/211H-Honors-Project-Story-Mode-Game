@@ -9,6 +9,7 @@ C:/Users/Dave/Documents/211-Honors-Project/build/Desktop_Qt_6_8_0_MinGW_64_bit-D
   C:/Qt/6.8.0/mingw_64/include/QtCore/QRect \
   C:/Qt/6.8.0/mingw_64/include/QtCore/QSize \
   C:/Qt/6.8.0/mingw_64/include/QtCore/QSizeF \
+  C:/Qt/6.8.0/mingw_64/include/QtCore/QTimer \
   C:/Qt/6.8.0/mingw_64/include/QtCore/q20functional.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/q20iterator.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/q20memory.h \
@@ -24,6 +25,7 @@ C:/Users/Dave/Documents/211-Honors-Project/build/Desktop_Qt_6_8_0_MinGW_64_bit-D
   C:/Qt/6.8.0/mingw_64/include/QtCore/qatomic.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/qatomic_cxx11.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/qbasicatomic.h \
+  C:/Qt/6.8.0/mingw_64/include/QtCore/qbasictimer.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/qbindingstorage.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/qbytearray.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/qbytearrayalgorithms.h \
@@ -134,6 +136,7 @@ C:/Users/Dave/Documents/211-Honors-Project/build/Desktop_Qt_6_8_0_MinGW_64_bit-D
   C:/Qt/6.8.0/mingw_64/include/QtCore/qtdeprecationmarkers.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/qtenvironmentvariables.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/qtextstream.h \
+  C:/Qt/6.8.0/mingw_64/include/QtCore/qtimer.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/qtmetamacros.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/qtnoop.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/qtpreprocessorsupport.h \
@@ -206,19 +209,29 @@ C:/Users/Dave/Documents/211-Honors-Project/build/Desktop_Qt_6_8_0_MinGW_64_bit-D
   C:/Qt/6.8.0/mingw_64/include/QtMultimedia/qtmultimedia-config.h \
   C:/Qt/6.8.0/mingw_64/include/QtMultimedia/qtmultimediaexports.h \
   C:/Qt/6.8.0/mingw_64/include/QtMultimedia/qtmultimediaglobal.h \
+  C:/Qt/6.8.0/mingw_64/include/QtWidgets/QGraphicsEllipseItem \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/QGraphicsScene \
+  C:/Qt/6.8.0/mingw_64/include/QtWidgets/QGraphicsSceneHoverEvent \
+  C:/Qt/6.8.0/mingw_64/include/QtWidgets/QGraphicsSceneMouseEvent \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/QGraphicsView \
+  C:/Qt/6.8.0/mingw_64/include/QtWidgets/QHBoxLayout \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/QLabel \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/QPushButton \
+  C:/Qt/6.8.0/mingw_64/include/QtWidgets/QVBoxLayout \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/QWidget \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/qabstractbutton.h \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+  C:/Qt/6.8.0/mingw_64/include/QtWidgets/qboxlayout.h \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/qframe.h \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
+  C:/Qt/6.8.0/mingw_64/include/QtWidgets/qgraphicssceneevent.h \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/qgraphicsview.h \
+  C:/Qt/6.8.0/mingw_64/include/QtWidgets/qgridlayout.h \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/qlabel.h \
+  C:/Qt/6.8.0/mingw_64/include/QtWidgets/qlayout.h \
+  C:/Qt/6.8.0/mingw_64/include/QtWidgets/qlayoutitem.h \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/qpushbutton.h \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/qscrollarea.h \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/qsizepolicy.h \
@@ -434,5 +447,6 @@ C:/Users/Dave/Documents/211-Honors-Project/build/Desktop_Qt_6_8_0_MinGW_64_bit-D
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
   C:/Users/Dave/Documents/211-Honors-Project/MayaNPC.h \
   C:/Users/Dave/Documents/211-Honors-Project/dialoguebox.h \
+  C:/Users/Dave/Documents/211-Honors-Project/herbspot.h \
   C:/Users/Dave/Documents/211-Honors-Project/player.h \
   C:/Users/Dave/Documents/211-Honors-Project/storymanager.h

@@ -14,7 +14,7 @@ Quiz::Quiz(QWidget *parent)
 
 void Quiz::loadQuestions()
 {
-    // Add your quiz questions here
+    // quiz questions
     questions.append({
         "Which healing herb grows commonly near Elder Maya's village?",
         {"Elderberry", "Yarrow", "Nightshade", "Dandelion"},
@@ -58,6 +58,8 @@ void Quiz::setupUI()
             }
             QPushButton:hover {
                 background-color: rgba(255, 255, 255, 0.1);
+                border: 2px solid #353F4A;
+                color: #353F4A;
             }
         )");
         connect(button, &QPushButton::clicked, this, [this, i]() { checkAnswer(i); });
@@ -68,13 +70,13 @@ void Quiz::setupUI()
     // Feedback label
     feedbackLabel = new QLabel(this);
     feedbackLabel->setWordWrap(true);
-    feedbackLabel->setStyleSheet("color: white; font-style: italic;");
+    feedbackLabel->setStyleSheet("color: #353F4A; font-style: italic; font-family: Mohave");
     feedbackLabel->hide();
     mainLayout->addWidget(feedbackLabel);
 
     // Score display
     scoreLabel = new QLabel("Score: 0", this);
-    scoreLabel->setStyleSheet("color: white; font-size: 14px;");
+    scoreLabel->setStyleSheet("color: #353F4A; font-size: 15px; font-family: Mohave");
     mainLayout->addWidget(scoreLabel);
 
     // Navigation buttons
@@ -83,7 +85,7 @@ void Quiz::setupUI()
     nextButton = new QPushButton("Next", this);
     nextButton->setStyleSheet(R"(
         QPushButton {
-            background-color: transparent;
+            background-color: #353F4A;
             border: 2px solid white;
             border-radius: 15px;
             color: white;
@@ -91,6 +93,8 @@ void Quiz::setupUI()
         }
         QPushButton:hover {
             background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid #353F4A;
+            color: #353F4A;
         }
     )");
     nextButton->hide();
@@ -104,7 +108,11 @@ void Quiz::setupUI()
     buttonLayout->addWidget(retryButton);
 
     mainLayout->addLayout(buttonLayout);
+
+    setWindowIcon(QIcon(":/res/logo.png"));
+    setWindowTitle("Unveiled");
 }
+
 
 void Quiz::displayQuestion()
 {
@@ -126,7 +134,7 @@ void Quiz::checkAnswer(int choice)
 {
     QuizQuestion current = questions[currentQuestion];
 
-    // Disable all buttons after answer
+    // Will disable buttons after answering
     for (auto button : answerButtons) {
         button->setEnabled(false);
     }
@@ -143,7 +151,7 @@ void Quiz::checkAnswer(int choice)
     feedbackLabel->show();
     updateScore();
 
-    // Show appropriate button
+    // Appropriate button shwoing
     if (currentQuestion < questions.size() - 1) {
         nextButton->show();
     } else {

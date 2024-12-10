@@ -1,5 +1,6 @@
 C:/Users/Dave/Documents/211-Honors-Project/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/211-Honors-Project_autogen/EWIEGA46WW/moc_dialoguebox.cpp: C:/Users/Dave/Documents/211-Honors-Project/dialoguebox.h \
   C:/Users/Dave/Documents/211-Honors-Project/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/211-Honors-Project_autogen/moc_predefs.h \
+  C:/Qt/6.8.0/mingw_64/include/QtCore/QTimer \
   C:/Qt/6.8.0/mingw_64/include/QtCore/q20functional.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/q20iterator.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/q20memory.h \
@@ -14,6 +15,7 @@ C:/Users/Dave/Documents/211-Honors-Project/build/Desktop_Qt_6_8_0_MinGW_64_bit-D
   C:/Qt/6.8.0/mingw_64/include/QtCore/qatomic.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/qatomic_cxx11.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/qbasicatomic.h \
+  C:/Qt/6.8.0/mingw_64/include/QtCore/qbasictimer.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/qbindingstorage.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/qbytearray.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/qbytearrayalgorithms.h \
@@ -105,6 +107,7 @@ C:/Users/Dave/Documents/211-Honors-Project/build/Desktop_Qt_6_8_0_MinGW_64_bit-D
   C:/Qt/6.8.0/mingw_64/include/QtCore/qtdeprecationmarkers.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/qtenvironmentvariables.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/qtextstream.h \
+  C:/Qt/6.8.0/mingw_64/include/QtCore/qtimer.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/qtmetamacros.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/qtnoop.h \
   C:/Qt/6.8.0/mingw_64/include/QtCore/qtpreprocessorsupport.h \
@@ -149,12 +152,18 @@ C:/Users/Dave/Documents/211-Honors-Project/build/Desktop_Qt_6_8_0_MinGW_64_bit-D
   C:/Qt/6.8.0/mingw_64/include/QtGui/qtransform.h \
   C:/Qt/6.8.0/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.8.0/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.8.0/mingw_64/include/QtWidgets/QHBoxLayout \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/QLabel \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/QPushButton \
+  C:/Qt/6.8.0/mingw_64/include/QtWidgets/QVBoxLayout \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/QWidget \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+  C:/Qt/6.8.0/mingw_64/include/QtWidgets/qboxlayout.h \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/qframe.h \
+  C:/Qt/6.8.0/mingw_64/include/QtWidgets/qgridlayout.h \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/qlabel.h \
+  C:/Qt/6.8.0/mingw_64/include/QtWidgets/qlayout.h \
+  C:/Qt/6.8.0/mingw_64/include/QtWidgets/qlayoutitem.h \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/qpushbutton.h \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/qsizepolicy.h \
   C:/Qt/6.8.0/mingw_64/include/QtWidgets/qtwidgets-config.h \

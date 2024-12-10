@@ -43,21 +43,87 @@
                 "next": "maya_intro"
             }
         ],
-        "maya_intro": {
-            "text": "As you approach the glow, you find an elderly woman gathering herbs.",
-            "speaker": "",
-            "choices": [
-                {
-                    "text": "Help gather herbs",
-                    "next": "help_maya",
-                    "trust_change": 1
-                },
-                {
-                    "text": "Question her methods",
-                    "next": "question_maya",
-                    "trust_change": -1
-                }
-            ]
-        }
+        "maya_intro": [
+            {
+                "text": "As you approach the glow, you find an elderly woman gathering herbs.",
+                "speaker": "",
+                "next": "maya_dialogue"
+            },
+            {
+                "id": "maya_dialogue",
+                "text": "Would you like to help an old woman gather some herbs?",
+                "speaker": "Elder Maya",
+                "choices": [
+                    {
+                        "text": "Help gather herbs",
+                        "next": "help_maya",
+                        "trust_change": 1
+                    },
+                    {
+                        "text": "Question her methods",
+                        "next": "question_maya",
+                        "trust_change": -1
+                    }
+                ]
+            }
+        ],
+        "help_maya": [
+            {
+                "text": "Ah, thank you dear. These herbs are essential for our village's medicine.",
+                "speaker": "Elder Maya",
+                "next": "help_maya_2"
+            },
+            {
+                "id": "help_maya_2",
+                "text": "As you help gather herbs, Maya shares stories about the village's healing traditions.",
+                "speaker": "",
+                "next": "hide_test"
+            }
+        ],
+        "question_maya": [
+            {
+                "text": "These methods have served our village for generations. Perhaps you should mind your own business.",
+                "speaker": "Elder Maya",
+                "next": "question_maya_2"
+            },
+            {
+                "id": "question_maya_2",
+                "text": "Maya continues her work, clearly uncomfortable with your presence.",
+                "speaker": "",
+                "next": "hide_test"
+            }
+        ],
+        "hide_test": [
+            {
+                "text": "Suddenly, voices approach through the forest. Maya looks at you intently...",
+                "speaker": "",
+                "choices": [
+                    {
+                        "text": "Hide quickly",
+                        "next": "pass_test",
+                        "trust_change": 1
+                    },
+                    {
+                        "text": "Stand your ground",
+                        "next": "fail_test",
+                        "trust_change": -1
+                    }
+                ]
+            }
+        ],
+        "pass_test": [
+            {
+                "text": "You've shown wisdom. Perhaps you can be trusted with our secrets.",
+                "speaker": "Elder Maya",
+                "next": "village_intro"
+            }
+        ],
+        "fail_test": [
+            {
+                "text": "Your lack of discretion concerns me. I must bid you farewell.",
+                "speaker": "Elder Maya",
+                "next": "game_over"
+            }
+        ]
     }
 }

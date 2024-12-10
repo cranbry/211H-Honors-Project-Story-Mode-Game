@@ -2,6 +2,7 @@
 #include "EWIEGA46WW/moc_chapters.cpp"
 #include "EWIEGA46WW/moc_dialoguebox.cpp"
 #include "EWIEGA46WW/moc_gamewindow.cpp"
+#include "EWIEGA46WW/moc_herbspot.cpp"
 #include "EWIEGA46WW/moc_mainwindow.cpp"
 #include "EWIEGA46WW/moc_mayanpc.cpp"
 #include "EWIEGA46WW/moc_player.cpp"

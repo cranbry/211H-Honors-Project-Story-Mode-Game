@@ -11,6 +11,9 @@ StoryScene::StoryScene(QWidget *parent)
 {
     storyManager = new StoryManager(this);
     storyManager->loadStory("chapter1");
+    // Add the connection here, before setupScene()
+    connect(storyManager, &StoryManager::trustLevelChanged,
+            this, &StoryScene::updateTrustMeter);
     setupScene();
     showMaya();
 }
@@ -62,18 +65,55 @@ void StoryScene::setupScene()
     setFixedSize(1058, 605);
 }
 
-void StoryScene::showNextMessage()
-{
-    if (storyManager->hasNextDialogue()) {
-        QString currentText = storyManager->getCurrentText();
-        dialogueBox->showMessage(currentText);
-        storyManager->advance();  // Move to next message
+void StoryScene::showNextMessage() {
+    qDebug() << "Showing next message";
+    qDebug() << "Current sequence:" << storyManager->getCurrentSequence();
+    qDebug() << "Current index:" << storyManager->getCurrentIndex();
 
-        // If there's still more dialogue after advancing
+    if (!storyManager) {
+        qDebug() << "StoryManager is null!";
+        return;
+    }
+
+    if (!dialogueBox->isVisible()) {
+        dialogueBox->show();
+    }
+
+    if (storyManager->hasChoices()) {
+        qDebug() << "Has choices";
+        QString currentText = storyManager->getCurrentText();
+        QString currentSpeaker = storyManager->getCurrentSpeaker();
+        qDebug() << "Text:" << currentText << "Speaker:" << currentSpeaker;
+
+        dialogueBox->showMessage(currentText, currentSpeaker);
+        showChoices();
+    } else {
+        QString currentText = storyManager->getCurrentText();
+        QString currentSpeaker = storyManager->getCurrentSpeaker();
+        qDebug() << "Current text:" << currentText;
+        qDebug() << "Current speaker:" << currentSpeaker;
+
+        dialogueBox->showMessage(currentText, currentSpeaker);
+
         if (storyManager->hasNextDialogue()) {
-            dialogueBox->setNextDialogue(storyManager->getCurrentText(), "");
+            storyManager->advance();
+            dialogueBox->setNextDialogue(storyManager->getCurrentText(),
+                                         storyManager->getCurrentSpeaker());
         } else {
-            dialogueBox->setNextDialogue("", "");  // No more dialogue
+            QString nextSequence = storyManager->getCurrentNextSequence();
+            if (nextSequence == "game_over") {
+                // Handle game over
+                dialogueBox->showMessage(currentText, currentSpeaker);
+                // Maybe add a small delay before closing
+                QTimer::singleShot(2000, [this]() {
+                    dialogueBox->hide();
+                    // You might want to emit a signal or call a method to handle game over
+                    // like showing a game over screen or returning to main menu
+                });
+            } else if (!nextSequence.isEmpty()) {
+                storyManager->loadSequence(nextSequence);
+                dialogueBox->setNextDialogue("", "");
+            }
         }
     }
 }
@@ -91,68 +131,196 @@ void StoryScene::startAutoWalk()
         player->setMovingRight(false);
 
         dialogueBox = new DialogueBox(view);
-        dialogueBox->move(50, view->height() - 300);
+        // Position the dialogue box at the bottom center of the view
+        dialogueBox->move((view->width() - dialogueBox->width()) / 2,
+                          view->height() - dialogueBox->height() - 50);
 
         // Connect DialogueBox finished signal to our showNextMessage function
-        connect(dialogueBox, &DialogueBox::dialogueFinished, this, &StoryScene::showNextMessage);
+        connect(dialogueBox, &DialogueBox::dialogueFinished,
+                this, &StoryScene::showNextMessage);
 
         // Show first message
         showNextMessage();
     });
 }
 
+
 void StoryScene::showMaya() {
-    // Create new character from sprite sheet
+    // Create new character
     mayaNPC = new MayaNPC();
 
-    // Load the sprite sheet
+    // Load and set up sprite sheet
     QPixmap spriteSheet(":/res/maya-walk.png");
-
-    // Set the individual sprite frames
     QVector<QPixmap> sprites;
     for (int i = 0; i < 8; i++) {
         sprites.push_back(spriteSheet.copy(i * 100, 0, 100, 150));
     }
 
-    // Set the initial sprite and position
+    // Set up initial Maya state
     mayaNPC->setPixmap(sprites[0]);
-    mayaNPC->setPos(900, 374);  // Start the Maya NPC on the right side
-    mayaNPC->setScale(1.45);  // Increase the scale to make the NPC larger
+    mayaNPC->setPos(900, 374);
+    mayaNPC->setScale(1.45);
+    mayaNPC->setAcceptedMouseButtons(Qt::NoButton);  // Initially not clickable
     scene->addItem(mayaNPC);
 
-    // Set up the walking animation
-    mayaWalkAnimation = new QPropertyAnimation(this);
-    mayaWalkAnimation->setTargetObject(mayaNPC);
-    mayaWalkAnimation->setPropertyName("x");
-    mayaWalkAnimation->setDuration(5000);  // 5 second walk duration
-    mayaWalkAnimation->setStartValue(900);  // Start position on the right
-    mayaWalkAnimation->setEndValue(-50);  // End position on the left
-    connect(mayaWalkAnimation, &QPropertyAnimation::valueChanged, this, &StoryScene::updateMayaPosition);
-    mayaWalkAnimation->start();
+    // Connect click signal
+    connect(mayaNPC, &MayaNPC::mayaClicked, this, &StoryScene::startMayaInteraction);
 
     // Add fade-in effect
     QGraphicsOpacityEffect* mayaOpacity = new QGraphicsOpacityEffect();
     mayaNPC->setGraphicsEffect(mayaOpacity);
 
     QPropertyAnimation* fadeIn = new QPropertyAnimation(mayaOpacity, "opacity");
-    fadeIn->setDuration(1000);  // 1 second fade in
+    fadeIn->setDuration(1000);
     fadeIn->setStartValue(0);
     fadeIn->setEndValue(1);
     fadeIn->start(QPropertyAnimation::DeleteWhenStopped);
 
-    // Set up the walking animation
+    // Set up single walking animation
     mayaWalkAnimation = new QPropertyAnimation(this);
     mayaWalkAnimation->setTargetObject(mayaNPC);
     mayaWalkAnimation->setPropertyName("x");
-    mayaWalkAnimation->setDuration(7000);  // 5 second walk duration
-    mayaWalkAnimation->setStartValue(1000);  // Start position on the right
-    mayaWalkAnimation->setEndValue(420);  // End position on the left
-    connect(mayaWalkAnimation, &QPropertyAnimation::valueChanged, this, &StoryScene::updateMayaPosition);
+    mayaWalkAnimation->setDuration(8000);
+    mayaWalkAnimation->setStartValue(1000);    // Start position on the right
+    mayaWalkAnimation->setEndValue(800);      // Final position
+    mayaWalkAnimation->setEasingCurve(QEasingCurve::InOutQuad);  // Smooth movement
+
+    connect(mayaWalkAnimation, &QPropertyAnimation::valueChanged,
+            this, &StoryScene::updateMayaPosition);
+
+    // Make Maya clickable after walking
+    connect(mayaWalkAnimation, &QPropertyAnimation::finished, [this]() {
+        mayaNPC->setAcceptedMouseButtons(Qt::LeftButton);
+        // We can add visual feedback here in the next improvement
+    });
+
     mayaWalkAnimation->start();
+}
+
+void StoryScene::showChoices() {
+    auto choices = storyManager->getCurrentChoices();
+    if (choices.isEmpty()) return;
+
+    disconnect(dialogueBox, &DialogueBox::choiceSelected, nullptr, nullptr);
+
+    connect(dialogueBox, &DialogueBox::choiceSelected,
+            this, [this](int index) {
+                storyManager->makeChoice(index);
+                if (storyManager->getCurrentSequence() == "help_maya") {
+                    dialogueBox->hide(); // Hide dialogue box
+                    setupHerbCollection();
+                } else {
+                    showNextMessage();
+                }
+            });
+
+    dialogueBox->showChoices(choices);
 }
 
 void StoryScene::updateMayaPosition(const QVariant& value) {
     mayaNPC->setPos(value.toReal(), mayaNPC->y());
+}
+
+void StoryScene::startMayaInteraction() {
+    storyManager->loadSequence("maya_intro");
+    showNextMessage();
+}
+
+QString StoryManager::getCurrentNextSequence() const {
+    if (currentSequence.isEmpty() || currentIndex >= currentSequence.size())
+        return QString();
+
+    QJsonObject currentObj = currentSequence[currentIndex].toObject();
+    return currentObj["next"].toString();
+}
+
+void StoryScene::updateTrustMeter(int newLevel) {
+    // You can implement the trust meter visualization here
+    qDebug() << "Trust level changed to:" << newLevel;
+}
+
+void StoryScene::handleChoice(int index) {
+    storyManager->makeChoice(index);
+    showNextMessage();
+}
+
+void StoryScene::setupHerbCollection() {
+    // Enable player movement
+    enablePlayerMovement(true);
+
+    // Create herb spots
+    QVector<QPointF> herbPositions = {
+        QPointF(200, 500),  // Adjust these positions based on your scene
+        QPointF(500, 500),
+        QPointF(800, 500)
+    };
+
+    for (const QPointF& pos : herbPositions) {
+        HerbSpot* herb = new HerbSpot(pos.x(), pos.y());
+        scene->addItem(herb);
+        herbSpots.append(herb);
+        connect(herb, &HerbSpot::herbCollected, this, &StoryScene::onHerbCollected);
+    }
+}
+
+void StoryScene::onHerbCollected() {
+    if (!storyManager || !dialogueBox || !scene) {
+        qDebug() << "Critical objects are null!";
+        return;
+    }
+
+    herbsCollected++;
+    qDebug() << "Herb collected! Total:" << herbsCollected;
+
+    if (herbsCollected >= 3) {
+        qDebug() << "All herbs collected!";
+
+        // Disable player movement
+        enablePlayerMovement(false);
+        qDebug() << "Player movement disabled";
+
+        // Remove herb spots safely
+        while (!herbSpots.isEmpty()) {
+            HerbSpot* herb = herbSpots.takeFirst();
+            if (herb) {
+                scene->removeItem(herb);
+                delete herb;
+            }
+        }
+        qDebug() << "Herb spots removed";
+
+        // Make sure dialogue box is visible and positioned correctly
+        dialogueBox->show();
+        dialogueBox->move((view->width() - dialogueBox->width()) / 2,
+                          view->height() - dialogueBox->height() - 50);
+        qDebug() << "Dialogue box shown";
+
+        // First show the completion dialogue
+        storyManager->loadSequence("help_maya");
+        QString currentText = storyManager->getCurrentText();
+        QString currentSpeaker = storyManager->getCurrentSpeaker();
+        dialogueBox->showMessage(currentText, currentSpeaker);
+
+        // Connect a one-time handler for the next click
+        connect(dialogueBox, &DialogueBox::dialogueFinished, this, [this]() {
+            // Load the hide test sequence after showing the completion dialogue
+            storyManager->loadSequence("hide_test");
+            showNextMessage();
+            // Disconnect this lambda to prevent multiple connections
+            disconnect(dialogueBox, &DialogueBox::dialogueFinished, nullptr, nullptr);
+        }, Qt::SingleShotConnection);
+    }
+}
+
+void StoryScene::enablePlayerMovement(bool enable) {
+    if (enable) {
+        player->setCanMove(true);
+        player->setFocus();
+    } else {
+        player->setCanMove(false);
+        player->stopMovement();
+        player->clearFocus();
+    }
 }
 
 void StoryScene::onDialogueChanged()

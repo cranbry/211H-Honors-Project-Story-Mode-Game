@@ -50,18 +50,27 @@ void Player::updateSprite()
     const int SPRITE_HEIGHT = 80;
     const int ROW_Y = 160;
 
-    // Handle movement
-    if (movingRight) {
-        setPos(x() + speed, y());
-        emit positionChanged();
-        facingRight = true;
-        playFootstep();  // Play sound when moving right
-    }
-    else if (movingLeft) {
-        setPos(x() - speed, y());
-        emit positionChanged();
-        facingRight = false;
-        playFootstep();  // Play sound when moving left
+    // Only handle movement if allowed
+    if (canMove) {
+        // Handle movement
+        if (movingRight) {
+            qreal newX = x() + speed;
+            if (newX <= sceneWidth - (SPRITE_WIDTH * scale())) {
+                setPos(newX, y());
+                emit positionChanged();
+                facingRight = true;
+                playFootstep();
+            }
+        }
+        else if (movingLeft) {
+            qreal newX = x() - speed;
+            if (newX >= 0) {
+                setPos(newX, y());
+                emit positionChanged();
+                facingRight = false;
+                playFootstep();
+            }
+        }
     }
 
     // Handle animation
@@ -86,6 +95,19 @@ void Player::updateSprite()
         currentFrame = 1;  // Standing frame
         animationCounter = 0;
     }
+}
+
+void Player::setCanMove(bool can) {
+    canMove = can;
+    if (!canMove) {
+        movingLeft = false;
+        movingRight = false;
+    }
+}
+
+void Player::stopMovement() {
+    movingLeft = false;
+    movingRight = false;
 }
 
 void Player::keyPressEvent(QKeyEvent *event)
